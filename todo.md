@@ -14,11 +14,11 @@
 
 ### Rover functionality
 
-- [ ] Rover photos check every hour
-- [ ] Rover position every hour
-- [ ] Exposing the information via a REST api and a S3 bucket
+x Rover photos check every hour - API removed
+- [ ] Rover position every hour - for the sake of the project they will be provided manually (no public API)
+- [ ] Exposing the information via a REST api and a local S3 bucket
 - [ ] Getting map tiles for the approximate surrounding of the rovers
-- [ ] Generating map and path based on the location of the rovers
+- [ ] Generating a map and path based on the location of the rovers
 
 ### News functionality
 
