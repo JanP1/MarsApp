@@ -54,8 +54,8 @@ Response example:
 [ 
     {
         sol: 4856,
-        high: -2,
-        low: -69,
+        lon: -2,
+        lat: -69,
     },
 ]
 
