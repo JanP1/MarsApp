@@ -15,8 +15,23 @@ time and stored in the DB
 
 ### Exposed endpoints
 - `GET b_url/api/weather/latest` - returns the latest saved weather measurement
-- `GET b_url/api/weather/avg/{:day_id}` - returns the avg of the measured values in a gien day (the values will be calculated by the end of the day and all the measurements for the day are dropped)
+- `GET b_url/api/weather/{:day_id}` - returns the value measured in a given day
 
+
+`GET b_url/api/weather/latest` and `GET b_url/api/weather/{:day_id}`
+
+Response example:
+
+```js
+[ 
+    {
+        sol: 4856,
+        high: -2,
+        low: -69,
+    },
+]
+
+```
 
 
 ## Rover API
@@ -30,7 +45,22 @@ time and stored in the DB
 `b_url/api/rover` - base of the url
 
 ### Exposed endpoints
-- `GET b_url/api/rover/position_latest` - returns latest position of the rover
+- `GET b_url/api/rover/position_latest` - returns the latest position of the rover
+
+
+Response example:
+
+```js
+[ 
+    {
+        sol: 4856,
+        high: -2,
+        low: -69,
+    },
+]
+
+```
+
 
 ## Map API
 
@@ -54,3 +84,9 @@ time and stored in the DB
 
 ## Image API
 
+
+
+
+> [!NOTE]
+> The API provided is mostly outdated or archived and no longer available so
+> probably the project will be extended to Earth as well

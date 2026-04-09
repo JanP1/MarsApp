@@ -8,13 +8,13 @@
 
 ### Weather functionality
 
-- [ ] Consume the weather API via a scheduled job
-- [ ] Create a REST endpoint for reading weather information
+x Consume the weather API via a scheduled job - *apparently the API is outdated*
+- [ ] Create a REST endpoint for reading weather information - the data is going to be provided manually to the DB
 - [ ] Graph representing weather change over time
 
 ### Rover functionality
 
-x Rover photos check every hour - API removed
+x Rover photos check every hour - *API removed*
 - [ ] Rover position every hour - for the sake of the project they will be provided manually (no public API)
 - [ ] Exposing the information via a REST api and a local S3 bucket
 - [ ] Getting map tiles for the approximate surrounding of the rovers
