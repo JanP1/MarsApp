@@ -37,7 +37,8 @@ time and stored in the DB
 ### Source
 **Mars Map** - Vesta/Moon/Mars Trek WMTS
 
-> [!TODO]
+> [!NOTE]
+> `TODO:`
 > Figure out a way to send the tiles around the current map position
 
 ## News API
