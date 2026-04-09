@@ -86,7 +86,7 @@ Response example:
 
 
 
-
+## Further Notes
 > [!NOTE]
 > The API provided is mostly outdated or archived and no longer available so
 > probably the project will be extended to Earth as well
