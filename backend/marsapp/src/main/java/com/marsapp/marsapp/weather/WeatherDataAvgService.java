@@ -1,10 +1,8 @@
-package com.marsapp.marsapp.service;
+package com.marsapp.marsapp.weather;
 
 import org.springframework.stereotype.Service;
 import com.marsapp.marsapp.exceptions.ResourceNotFoundException;
 
-import com.marsapp.marsapp.model.WeatherDataAvg;
-import com.marsapp.marsapp.repository.WeatherDataAvgRepository;
 
 @Service
 public class WeatherDataAvgService {

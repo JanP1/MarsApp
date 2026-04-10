@@ -1,11 +1,8 @@
-package com.marsapp.marsapp.controller;
+package com.marsapp.marsapp.weather;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.marsapp.marsapp.model.WeatherDataAvg;
-import com.marsapp.marsapp.service.WeatherDataAvgService;
 
 @RestController
 @RequestMapping("api/weather")

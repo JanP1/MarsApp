@@ -1,4 +1,4 @@
-package com.marsapp.marsapp.model;
+package com.marsapp.marsapp.weather;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
