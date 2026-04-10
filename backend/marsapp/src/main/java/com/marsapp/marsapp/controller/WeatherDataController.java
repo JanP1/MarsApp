@@ -4,21 +4,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.marsapp.marsapp.model.WeatherDataAvg;
-import com.marsapp.marsapp.repository.WeatherDataAvgRepository;
+import com.marsapp.marsapp.service.WeatherDataAvgService;
 
 @RestController
 @RequestMapping("api/weather")
 public class WeatherDataController {
 
-// TODO : change this - move all the unnecesary logic to a service
-    private final WeatherDataAvgRepository weatherDataAvgRepository;
+    private final WeatherDataAvgService weatherDataAvgService;
 
-    public WeatherDataController(WeatherDataAvgRepository weatherDataAvgRepository) {
-        this.weatherDataAvgRepository = weatherDataAvgRepository;
+    public WeatherDataController(WeatherDataAvgService weatherDataAvgService) {
+        this.weatherDataAvgService = weatherDataAvgService;
     }
 
     public WeatherDataAvg getLatest() {
-
+        return weatherDataAvgService.getLatestWeatherMeasurement();
     }
 
 }

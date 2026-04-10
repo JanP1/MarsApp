@@ -5,4 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.marsapp.marsapp.model.WeatherDataAvg;
 
 @Repository
-public interface WeatherDataAvgRepository extends JpaRepository<WeatherDataAvg, Long>{ }
+public interface WeatherDataAvgRepository extends JpaRepository<WeatherDataAvg, Long>{ 
+    public WeatherDataAvg findFirstByOrderBySolDesc();
+}
