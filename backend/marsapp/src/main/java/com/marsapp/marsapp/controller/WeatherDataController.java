@@ -1,5 +1,6 @@
 package com.marsapp.marsapp.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +17,7 @@ public class WeatherDataController {
         this.weatherDataAvgService = weatherDataAvgService;
     }
 
+    @GetMapping("latest")
     public WeatherDataAvg getLatest() {
         return weatherDataAvgService.getLatestWeatherMeasurement();
     }
