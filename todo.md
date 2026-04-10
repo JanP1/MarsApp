@@ -26,3 +26,7 @@ x Rover photos check every hour - *API removed*
 - [ ] Creating a job getting Mars related news from the SpacecraftNews API
 - [ ] News View + News bubble floating
 
+
+## Other TODO
+
+- [ ] Change the directories in Spring Boot to be organized by feature not by controller, repository etc
