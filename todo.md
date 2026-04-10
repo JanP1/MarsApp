@@ -29,4 +29,4 @@ x Rover photos check every hour - *API removed*
 
 ## Other TODO
 
-- [ ] Change the directories in Spring Boot to be organized by feature not by controller, repository etc
+- [x] Change the directories in Spring Boot to be organized by feature not by controller, repository etc
