@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabase;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
-import org.testcontainers.junit.jupiter.Container;
+// import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.postgresql.PostgreSQLContainer;
+
+import com.marsapp.marsapp.BaseIntegrationTest;
 
 import java.util.Optional;
 
@@ -19,9 +21,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class WeatherDataAvgRepositoryTest {
 
-    @Container
+    // @Container
+    // @ServiceConnection
+    // static PostgreSQLContainer postgres = new PostgreSQLContainer("postgres:16-alpine");
     @ServiceConnection
-    static PostgreSQLContainer postgres = new PostgreSQLContainer("postgres:16-alpine");
+    static PostgreSQLContainer postgres = BaseIntegrationTest.postgres;
 
     @Autowired
     private WeatherDataAvgRepository repository;
