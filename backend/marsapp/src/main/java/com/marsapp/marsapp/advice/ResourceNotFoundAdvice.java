@@ -8,12 +8,15 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.marsapp.marsapp.exceptions.ResourceNotFoundException;
 
+import java.util.Map;
+
 @RestControllerAdvice
 class ResourceNotFoundAdvice {
 
     @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String resourceNotFoundHandler(ResourceNotFoundException ex) {
-        return ex.getMessage();
+    public Map<String, String> resourceNotFoundHandler(ResourceNotFoundException ex) {
+
+        return Map.of("message", ex.getMessage());
     }
 }

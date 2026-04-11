@@ -21,9 +21,19 @@ public class WeatherDataAvgService {
     }
 
     public List<WeatherDataAvg> getLastWeekWeatherMeasurement() {
+        List<WeatherDataAvg> measurements = weatherDataAvgRepository.findFirst7ByOrderBySolDesc();
+        
+        if (measurements.isEmpty()) {
+            throw new ResourceNotFoundException("Data for last week not found");
+        }
+        
+        return measurements;
+    }
+
+    public WeatherDataAvg getBySolValue(String searchedSol) {
         return weatherDataAvgRepository
-            .findFirst7ByOrderBySolDesc()
-            .orElseThrow(() -> new ResourceNotFoundException("Data for sol not found"));
+            .findBySol(searchedSol)
+            .orElseThrow(() -> new ResourceNotFoundException("Data for given sol not found"));
     }
     
 }

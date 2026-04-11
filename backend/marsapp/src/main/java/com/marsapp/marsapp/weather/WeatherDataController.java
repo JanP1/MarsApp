@@ -3,6 +3,7 @@ package com.marsapp.marsapp.weather;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,4 +27,8 @@ public class WeatherDataController {
         return weatherDataAvgService.getLastWeekWeatherMeasurement();
     }
 
+    @GetMapping("sol/{solValue}")
+    public WeatherDataAvg getWeatherBySol(@PathVariable String solValue) {
+        return weatherDataAvgService.getBySolValue(solValue);
+    }
 }
