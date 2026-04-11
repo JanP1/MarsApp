@@ -9,9 +9,11 @@ provide information about the planet Mars.
 ## Tech stack
 
 ### Frontend
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 The frontend is written in Typescript using the Angular framework.
 
 ### Backend
+![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
 The backend is written in Java using the Spring Framework.
 
 ### Database
