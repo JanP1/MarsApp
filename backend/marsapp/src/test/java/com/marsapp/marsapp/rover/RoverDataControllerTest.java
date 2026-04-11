@@ -75,7 +75,7 @@ public class RoverDataControllerTest {
             .consumeWith(result -> {
 
                 String message = result.getResponseBody();
-                assertThat(message).contains("Data for sol not found");
+                assertThat(message).contains("Rover position for sol not found");
             });
     }   
 
