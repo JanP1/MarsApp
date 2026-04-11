@@ -1,5 +1,7 @@
 package com.marsapp.marsapp.weather;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import com.marsapp.marsapp.exceptions.ResourceNotFoundException;
 
@@ -15,6 +17,12 @@ public class WeatherDataAvgService {
     public WeatherDataAvg getLatestWeatherMeasurement() {
         return weatherDataAvgRepository
             .findFirstByOrderBySolDesc()
+            .orElseThrow(() -> new ResourceNotFoundException("Data for sol not found"));
+    }
+
+    public List<WeatherDataAvg> getLastWeekWeatherMeasurement() {
+        return weatherDataAvgRepository
+            .findFirst7ByOrderBySolDesc()
             .orElseThrow(() -> new ResourceNotFoundException("Data for sol not found"));
     }
     
