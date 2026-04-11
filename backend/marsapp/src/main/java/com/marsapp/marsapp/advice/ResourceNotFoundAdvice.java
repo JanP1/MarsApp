@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.marsapp.marsapp.exceptions.ResourceNotFoundException;
 
 @RestControllerAdvice
-class EmployeeNotFoundAdvice {
+class ResourceNotFoundAdvice {
 
     @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-        String employeeNotFoundHandler(ResourceNotFoundException ex) {
+        String resourceNotFoundHandler(ResourceNotFoundException ex) {
         return ex.getMessage();
     }
 }
