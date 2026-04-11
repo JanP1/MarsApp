@@ -9,12 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.test.web.servlet.client.RestTestClient;
-// import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.postgresql.PostgreSQLContainer;
-
-import com.marsapp.marsapp.BaseIntegrationTest;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
