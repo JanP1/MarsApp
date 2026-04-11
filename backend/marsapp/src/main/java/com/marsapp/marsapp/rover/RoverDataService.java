@@ -26,7 +26,7 @@ public class RoverDataService {
         List<RoverData> roverPositions = roverDataRepository.findBySolBetween(startSol, endSol);
         
         if (roverPositions.isEmpty()) {
-            throw new ResourceNotFoundException("Data for last week not found");
+            throw new ResourceNotFoundException("Rover position for sol not found");
         }
         
         return roverPositions;
@@ -37,7 +37,7 @@ public class RoverDataService {
         List<RoverData> roverPositions = roverDataRepository.findBySolGreaterThanEqual(startSol);
         
         if (roverPositions.isEmpty()) {
-            throw new ResourceNotFoundException("Data for last week not found");
+            throw new ResourceNotFoundException("Rover position for sol not found");
         }
         
         return roverPositions;
