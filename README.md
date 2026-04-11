@@ -2,6 +2,9 @@
   <img src="./marsappicon.png" alt="..." width="200"><br>
 </p>
 
+> [!NOTE]
+> Work in Progress 
+
 # Mars App
 A full stack web application written in Spring Boot and Angular. The application uses a REST API to 
 provide information about the planet Mars.
