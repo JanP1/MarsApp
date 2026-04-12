@@ -17,10 +17,13 @@ provide information about the planet Mars.
 ### Frontend 
 
 The frontend is written in Typescript using the Angular framework.
+More information in the `frontend` directory
 
 ### Backend
 
 The backend is written in Java using the Spring Framework.
+More information in the `backend` directory
 
 ### Database
 For storage the app uses a PostgreSQL database.
+More information in the `db` directory
