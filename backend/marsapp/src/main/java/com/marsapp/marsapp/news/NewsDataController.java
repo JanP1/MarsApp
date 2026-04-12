@@ -21,21 +21,20 @@ public class NewsDataController {
 
 
     @GetMapping
-    public List<NewsData> getNewsForDate(
-            @RequestParam(name = "date")
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date
-    ) {
-
-        return newsDataService.getNewsForDate(date);
-    }
-
-
-    @GetMapping
-    public List<NewsData> getNewsFromDayTillNow(
-            @RequestParam(name = "from")
+    public List<NewsData> getNews(
+            @RequestParam(name = "date", required = false) 
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+            
+            @RequestParam(name = "from", required = false) 
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate from
     ) {
-        return newsDataService.getNewsFromDayTillNow(from);
+        if (date != null) {
+            return newsDataService.getNewsForDate(date);
+        } else if (from != null) {
+            return newsDataService.getNewsFromDayTillNow(from);
+        }
+        
+        throw new IllegalArgumentException("Either 'date' or 'from' parameter must be provided");
     }
 
 
