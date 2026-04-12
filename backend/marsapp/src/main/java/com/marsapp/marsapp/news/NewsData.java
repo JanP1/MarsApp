@@ -5,14 +5,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -38,11 +38,13 @@ public class NewsData {
     @Column(columnDefinition = "TEXT")
     private String summary;
 
-    @ElementCollection
-    @CollectionTable(
-        name = "news_authors", 
-        joinColumns = @JoinColumn(name = "news_id")
+    @ManyToMany
+    @JoinTable(
+        name = "news_author_map",
+        joinColumns = @JoinColumn(name = "news_id"),
+        inverseJoinColumns = @JoinColumn(name = "author_id")
     )
+
     private List<Author> authors = new ArrayList<>();
 
     public Long getId() {
