@@ -15,7 +15,7 @@ docker volume create postgres_data
 The container itself can be created using
 
 ```bash
-docker run 
+docker run \
     -d --name local_postgres \
     -p 127.0.0.1:5432:5432 \
     -e POSTGRES_PASSWORD="*********" \
