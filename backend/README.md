@@ -10,7 +10,7 @@
 ### Integration tests
 
 - [x] Weather
-- [ ] Rover
-- [ ] News
+- [x] Rover
+- [x] News
 
 
