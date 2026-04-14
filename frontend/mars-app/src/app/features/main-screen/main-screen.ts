@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-main-screen',
-  imports: [],
+  imports: [
+    RouterLink,
+  ],
   templateUrl: './main-screen.html',
   styleUrl: './main-screen.scss',
 })
