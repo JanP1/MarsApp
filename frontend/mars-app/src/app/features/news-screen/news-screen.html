@@ -1,6 +1,44 @@
 <div class="page-tag">
   NEWS
 </div>
+
 <div class="news-screen-container">
+
+  @if (newsList$ | async; as allNews) {
+
+    @for (news of allNews; track news.id) {
+      <div class="news-card">
+
+        <div class="news-header">
+          <span class="site-badge">{{ news.newsSite }}</span>
+          <span class="date">{{ news.publishedAt.toString() }}</span>
+        </div>
+
+        <h2 class="news-title">
+          <a [href]="news.url" target="_blank">{{ news.summary }}</a>
+        </h2>
+
+        <div class="author-list">
+          <span class="by-text">By: </span>
+
+          @for (auth of news.author; track auth.id; let isLast = $last) {
+            <span class="author-name">{{ auth.name }}</span>
+
+            @if (auth.xLink) {
+              <a [href]="auth.xLink" class="social-icon">𝕏</a>
+            }
+
+            @if (!isLast) { <span>, </span> }
+          }
+        </div>
+
+      </div>
+    } @empty {
+      <div class="empty-state">No news found for this period.</div>
+    }
+
+  } @else {
+    <div class="loader">Fetching latest updates...</div>
+  }
 
 </div>
