@@ -7,6 +7,6 @@ export interface News {
   url: string,
   newsSite: string,
   summary: string,
-  author: Author[],
+  authors: Author[],
 
 }

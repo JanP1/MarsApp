@@ -3,14 +3,32 @@
   width: 100%;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+
 
   border: 2px solid gray;
   box-sizing: border-box;
 
 
+}
+
+.news-container {
+
+  width: 100%;
+  overflow-y: auto;
+
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px;
+
+}
+
+.news-card {
+  width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: darkslategrey;
 }
 
 
