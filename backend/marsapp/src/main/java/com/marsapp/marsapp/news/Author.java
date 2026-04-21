@@ -44,7 +44,7 @@ public class Author {
     public void setName(String name) {
         this.name = name;
     }
-    public String getxLink() {
+    public String getXLink() {
         return xLink;
     }
     public void setxLink(String xLink) {
