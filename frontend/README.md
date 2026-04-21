@@ -10,8 +10,8 @@
 
 
 ### Frontend - Backend communication:
-- [ ] Make it possible for the frontend and backend to communicate
-- [ ] Consume the REST endpoints provided by the backend
+- [x] Make it possible for the frontend and backend to communicate
+- [x] Consume the REST endpoints provided by the backend
 
 
 
