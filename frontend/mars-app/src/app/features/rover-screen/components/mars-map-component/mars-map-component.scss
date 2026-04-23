@@ -10,7 +10,6 @@
   height: 100%;
   width: 100%;
 
-  opacity: 0.8;
   position: absolute;
 }
 
@@ -18,7 +17,31 @@
   height: 100%;
   width: 100%;
 
-  opacity: 0.8;
   position: absolute;
+  ::ng-deep {
+    canvas, .ol-layer {
+      filter:
+        sepia(1)
+        hue-rotate(-45deg)
+        saturate(2.5)
+        brightness(0.8)
+        contrast(1);
+
+      transition: filter 0.5s ease-in-out;
+    }
+
+    .ol-control, .ol-attribution {
+      filter: none !important;
+
+      button {
+        color: white;
+        background-color: black;
+        &:hover {
+          background-color: lightblue;
+          color: black;
+        }
+      }
+    }
+  }
 
 }
