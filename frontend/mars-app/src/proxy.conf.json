@@ -3,5 +3,13 @@
     "target": "http://localhost:8080",
     "secure": false,
     "changeOrigin": true
+  },
+  "/nasa-trek": {
+    "target": "https://trek.nasa.gov",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/nasa-trek": ""
+    }
   }
 }
