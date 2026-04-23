@@ -2,20 +2,6 @@
   ROVER
 </div>
 <div class="rover-screen-container">
+  <app-mars-map-component/>
 
-  <div class="news-container">
-
-    @if (roverLastPosition$ | async; as rover) {
-
-      <div class="rover-lon-lat">
-        Longitude: {{rover.longitude}} <br><br>
-        Lattitude: {{rover.lattitude}}
-      </div>
-
-
-    } @else {
-      <div class="loader">Fetching latest updates...</div>
-    }
-
-  </div>
 </div>
