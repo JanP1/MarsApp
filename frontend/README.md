@@ -13,5 +13,9 @@
 - [x] Make it possible for the frontend and backend to communicate
 - [x] Consume the REST endpoints provided by the backend
 
+### Map
+- [x] Create map
+- [ ] Display rover positions
+
 
 
