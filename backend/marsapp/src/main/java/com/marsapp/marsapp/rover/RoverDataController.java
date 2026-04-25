@@ -32,4 +32,15 @@ public class RoverDataController {
         
         return roverDataService.getRoverPositionFormDateUntillLatest(from);
     }
+
+    // Get all points that are inside the provided coordinates
+    @GetMapping("bbox")
+    public List<RoverData> getInBBox(
+            @RequestParam double xmin,
+            @RequestParam double ymin,
+            @RequestParam double xmax,
+            @RequestParam double ymax
+    ) {
+        return roverDataService.getInBBox(xmin, ymin, xmax, ymax);
+    }
 }

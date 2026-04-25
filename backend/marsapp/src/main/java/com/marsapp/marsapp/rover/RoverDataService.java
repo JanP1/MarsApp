@@ -14,7 +14,10 @@ public class RoverDataService {
     public RoverDataService(RoverDataRepository roverDataRepository) {
         this.roverDataRepository = roverDataRepository;
     }
-    
+
+    public List<RoverData> getInBBox(double xmin, double ymin, double xmax, double ymax) {
+        return roverDataRepository.findInBBox(xmin, ymin, xmax, ymax);
+    }   
 
     public RoverData getLatestRoverPosition() {
         return roverDataRepository
