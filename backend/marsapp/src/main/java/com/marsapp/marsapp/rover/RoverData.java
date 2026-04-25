@@ -19,13 +19,13 @@ public class RoverData {
     private int sol;
 
     @Column(name = "lat")
-    private int lattitude;
+    private double lattitude;
 
     @Column(name = "lon")
-    private int longitude;
+    private double longitude;
 
     @Column(name = "elevation")
-    private int elevation;
+    private double elevation;
 
     public Long getId() {
         return id;
@@ -39,19 +39,19 @@ public class RoverData {
     public void setSol(int sol) {
         this.sol = sol;
     }
-    public int getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
     public void setLongitude(int longitude) {
         this.longitude = longitude;
     }
-    public int getLattitude() {
+    public double getLattitude() {
         return lattitude;
     }
     public void setLattitude(int lattitude) {
         this.lattitude = lattitude;
     }
-    public int getElevation() {
+    public double getElevation() {
         return elevation;
     }
     public void setElevation(int elevation) {
