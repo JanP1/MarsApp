@@ -1,3 +1,7 @@
+----------------------------
+-- Not compatible for now --
+----------------------------
+
 INSERT INTO rover_data (sol, lat, lon, elevation) VALUES (3, -4.589467, 137.441633, -4500.971);
 INSERT INTO rover_data (sol, lat, lon, elevation) VALUES (5, -4.589467, 137.441633, -4500.971);
 INSERT INTO rover_data (sol, lat, lon, elevation) VALUES (16, -4.589465, 137.441734, -4501.12);
