@@ -42,11 +42,13 @@ public class RoverDataRepositoryTest {
         day1.setSol(100);
         day1.setLongitude(-10);
         day1.setLattitude(-80);
+        day1.setElevation(20);
 
         RoverData day2 = new RoverData();
         day2.setSol(101);
         day2.setLongitude(-5);
         day2.setLattitude(-75);
+        day2.setElevation(30);
 
         repository.save(day1);
         repository.save(day2);
@@ -56,5 +58,6 @@ public class RoverDataRepositoryTest {
         assertThat(latest).isPresent();
         assertThat(latest.get().getSol()).isEqualTo(101);
         assertThat(latest.get().getLongitude()).isEqualTo(-5);
+        assertThat(latest.get().getElevation()).isEqualTo(30);
     }
 }

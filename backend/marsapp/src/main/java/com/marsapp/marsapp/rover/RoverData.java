@@ -24,6 +24,9 @@ public class RoverData {
     @Column(name = "lon")
     private int longitude;
 
+    @Column(name = "elevation")
+    private int elevation;
+
     public Long getId() {
         return id;
     }
@@ -47,6 +50,12 @@ public class RoverData {
     }
     public void setLattitude(int lattitude) {
         this.lattitude = lattitude;
+    }
+    public int getElevation() {
+        return elevation;
+    }
+    public void setElevation(int elevation) {
+        this.elevation = elevation;
     }
     
 }

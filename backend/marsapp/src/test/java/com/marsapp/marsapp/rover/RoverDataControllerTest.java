@@ -51,6 +51,7 @@ public class RoverDataControllerTest {
         rover.setSol(101);
         rover.setLongitude(-5);
         rover.setLattitude(-75);
+        rover.setElevation(20);
         repository.save(rover);
 
         restTestClient.get()
