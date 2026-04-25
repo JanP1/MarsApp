@@ -9,6 +9,7 @@
 
   border: 2px solid gray;
   box-sizing: border-box;
+  position: relative;
 
 }
 
@@ -30,4 +31,20 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+}
+
+.bbox-display-widget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+  width: 200px;
+  height: 100px;
+  background-color: darkorange;
+  border-radius: 10px;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+
 }

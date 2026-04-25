@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Rover } from './models/rover.model';
 import { RoverService } from './services/rover.service';
@@ -14,11 +14,33 @@ import { MarsMapComponent } from './components/mars-map-component/mars-map-compo
 })
 export class RoverScreen {
   roverLastPosition$!: Observable<Rover>;
+  currentMapExtent: number[] = [];
+  pathPointsInView = signal<Rover[]>([]);
+  private canFetchPoints = false;
 
   constructor(private roverService: RoverService) {}
 
   ngOnInit(): void {
     this.roverLastPosition$ = this.roverService.getLatestRoverPosition();
+  }
+
+  togglePathVisibility(shouldDisplay: boolean) {
+    this.canFetchPoints = shouldDisplay;
+    if (!shouldDisplay) {
+      this.pathPointsInView.set([]);
+    }
+  }
+
+  handleMapChange(bbox: number[]): void {
+    this.currentMapExtent = bbox.map(num => Math.round(num * 10000) / 10000);
+
+    // Only fetch if the zoom is 12 or greater
+    if (this.canFetchPoints) {
+      this.roverService.getPathPointsInBBox(bbox).subscribe(points => {
+        this.pathPointsInView.set(points);
+        console.log(points);
+      });
+    }
   }
 
 }
