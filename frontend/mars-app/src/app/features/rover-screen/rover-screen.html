@@ -8,6 +8,7 @@
 
   </div>
   <app-mars-map-component
+    [points]="pathPointsInView()"
     (currentBbox)="handleMapChange($event)"
     (shouldDisplayPoints)="togglePathVisibility($event)"
     />

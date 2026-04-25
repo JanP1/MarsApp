@@ -11,6 +11,7 @@ import { Point } from "ol/geom";
 import Style from "ol/style/Style";
 import Icon from "ol/style/Icon";
 import VectorSource from "ol/source/Vector";
+import { Rover } from "../../../models/rover.model";
 
 @Injectable({ providedIn: 'root' })
 export class MarsMapService {
@@ -115,5 +116,48 @@ export class MarsMapService {
     });
   }
 
+  // ========== ROVER POINTS =============================
+
+  private pathSource = new VectorSource();
+
+  getPathLayer(): VectorLayer {
+    return new VectorLayer({
+      source: this.pathSource,
+      style: {
+        'circle-stroke-color': 'hsl(0 100% 100% / 0.9)',
+        'circle-stroke-width': 0.75,
+        'circle-radius': 5,
+        'circle-fill-color': 'hsl(210 100% 40% / 0.9)',
+      },
+    });
+  }
+
+  updatePathData(points: Rover[]): void {
+    this.pathSource.clear();
+    const features = points.map(p => new Feature({
+      geometry: new Point([p.longitude, p.lattitude]),
+      ...p
+    }));
+    this.pathSource.addFeatures(features);
+  }
+
+  getRoverPointsLayer(points: Rover[]): VectorLayer {
+    const features = points.map(p => new Feature({
+      geometry: new Point([p.longitude, p.lattitude]),
+      ...p
+    }));
+
+    return new VectorLayer({
+      source: new VectorSource({
+        features: features
+      }),
+      style: {
+        'circle-stroke-color': 'hsl(0 100% 100% / 0.9)',
+        'circle-stroke-width': 0.75,
+        'circle-radius': 5,
+        'circle-fill-color': 'hsl(210 100% 40% / 0.9)',
+      },
+    });
+  }
 
 }

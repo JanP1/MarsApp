@@ -13,9 +13,19 @@ import { MarsMapComponent } from './components/mars-map-component/mars-map-compo
   styleUrl: './rover-screen.scss',
 })
 export class RoverScreen {
+
   roverLastPosition$!: Observable<Rover>;
+
+  // Based on
+  //
+  //      public readonly currentBbox = output<number[]>();
+  //
+  // from MarsMapComponent
   currentMapExtent: number[] = [];
+
+  // Sent to the @Input of MarsMapComponent
   pathPointsInView = signal<Rover[]>([]);
+
   private canFetchPoints = false;
 
   constructor(private roverService: RoverService) {}
@@ -24,6 +34,8 @@ export class RoverScreen {
     this.roverLastPosition$ = this.roverService.getLatestRoverPosition();
   }
 
+  // Triggered when shouldDisplayPoints
+  // is being changed in MarsMapComponent
   togglePathVisibility(shouldDisplay: boolean) {
     this.canFetchPoints = shouldDisplay;
     if (!shouldDisplay) {
@@ -31,6 +43,7 @@ export class RoverScreen {
     }
   }
 
+  // Triggered when currentBbox changes in MarsMapComponent
   handleMapChange(bbox: number[]): void {
     this.currentMapExtent = bbox.map(num => Math.round(num * 10000) / 10000);
 

@@ -1,6 +1,7 @@
-import { Component, OnInit, output } from '@angular/core';
+import { Component, Input, OnInit, output } from '@angular/core';
 import { Map } from 'ol';
 import { MarsMapService } from './services/mars-map.service';
+import { Rover } from '../../models/rover.model';
 
 @Component({
   selector: 'app-mars-map-component',
@@ -12,7 +13,14 @@ export class MarsMapComponent implements OnInit {
 
   map!: Map;
 
+  // Input is set by the parent when the points are fetched
+  @Input() set points(value: Rover[]) {
+    this.marsMapService.updatePathData(value);
+  }
+
+  // This are the boundaries of the map visible on the screen
   public readonly currentBbox = output<number[]>();
+  // Display only when zoomed in >= 12
   public readonly shouldDisplayPoints = output<boolean>();
 
   initMapLogic() {
@@ -31,9 +39,7 @@ export class MarsMapComponent implements OnInit {
     });
   }
 
-  constructor(
-    private marsMapService: MarsMapService,
-  ) {}
+  constructor( private marsMapService: MarsMapService,) {}
 
   ngOnInit(): void {
     this.initializeMap();
@@ -45,6 +51,7 @@ export class MarsMapComponent implements OnInit {
       target: 'mars-map',
       layers: [
         this.marsMapService.getCuriosityCtxLayer(),
+        this.marsMapService.getPathLayer(),
         this.marsMapService.getRoverPosIconLayer()
       ],
       view: this.marsMapService.createMarsView(),
