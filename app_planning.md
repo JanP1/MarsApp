@@ -22,3 +22,16 @@ Data will be collected from the NASA public API.
 - Mars rover updates
 - Mars rover position on Map if possible
 
+
+### Map functionality
+Previously the map was going to fetch points for a path if the zoom is greater less than 10, otherwise 
+it was fetching all the points in the visible bbox
+
+The change should be that every morning it should be checked if a new point is added
+after the check there should be a calculation of most significant points for every zoom level
+
+Then in a column called "min_zoom" we store the value
+
+
+The frontend fetches in the bbox, and next it searches which of the selected rows have
+`min_zoom` less or equal to the provided zoom
