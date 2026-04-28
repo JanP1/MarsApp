@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, output } from '@angular/core';
+import { Component, Input, model, OnInit, output } from '@angular/core';
 import { Map } from 'ol';
 import { MarsMapService } from './services/mars-map.service';
 import { Rover } from '../../models/rover.model';
@@ -19,7 +19,7 @@ export class MarsMapComponent implements OnInit {
   }
 
   // This are the boundaries of the map visible on the screen
-  public readonly currentBbox = output<number[]>();
+  public readonly currentBbox = model<number[]>([]);
   // Display only when zoomed in >= 12
   public readonly shouldDisplayPoints = output<boolean>();
 
@@ -30,10 +30,11 @@ export class MarsMapComponent implements OnInit {
 
       if (mapSize && view) {
         const bbox = view.calculateExtent(mapSize);
+
         const zoom = view.getZoom() || 0;
 
         this.shouldDisplayPoints.emit(zoom >= 12);
-        this.currentBbox.emit(bbox);
+        this.currentBbox.set(bbox);
 
       }
     });

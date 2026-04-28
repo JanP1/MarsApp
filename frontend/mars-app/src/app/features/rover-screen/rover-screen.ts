@@ -16,12 +16,14 @@ export class RoverScreen {
 
   roverLastPosition$!: Observable<Rover>;
 
+  // TODO remove currentMapExtent later -----
   // Based on
   //
-  //      public readonly currentBbox = output<number[]>();
+  //      public readonly currentBbox = model<number[]>();
   //
   // from MarsMapComponent
   currentMapExtent: number[] = [];
+  // ----------------------------------------
 
   // Sent to the @Input of MarsMapComponent
   pathPointsInView = signal<Rover[]>([]);
@@ -45,10 +47,16 @@ export class RoverScreen {
 
   // Triggered when currentBbox changes in MarsMapComponent
   handleMapChange(bbox: number[]): void {
+
+    //TODO If no longer needed remove currentMapExtent -------
     this.currentMapExtent = bbox.map(num => Math.round(num * 10000) / 10000);
+    // -------------------------------------------------------
+    console.log(this.canFetchPoints);
+
 
     // Only fetch if the zoom is 12 or greater
     if (this.canFetchPoints) {
+
       this.roverService.getPathPointsInBBox(bbox).subscribe(points => {
         this.pathPointsInView.set(points);
         console.log(points);

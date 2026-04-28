@@ -2,15 +2,16 @@
   ROVER
 </div>
 <div class="rover-screen-container">
-  <div class="bbox-display-widget">
-    {{currentMapExtent[0]}} | {{currentMapExtent[1]}}<br>
-    {{currentMapExtent[2]}} | {{currentMapExtent[3]}}
+  <div class="rov-screen-grid-col-1">
+
+    <!-- TODO Remove currentBbox later-->
+    <app-mars-map-component
+      [points]="pathPointsInView()"
+      [(currentBbox)]="currentMapExtent"
+      (currentBboxChange)="handleMapChange($event)"
+      (shouldDisplayPoints)="togglePathVisibility($event)"
+      />
 
   </div>
-  <app-mars-map-component
-    [points]="pathPointsInView()"
-    (currentBbox)="handleMapChange($event)"
-    (shouldDisplayPoints)="togglePathVisibility($event)"
-    />
 
 </div>

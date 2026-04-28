@@ -1,8 +1,8 @@
 .mars-map {
   height: 100%;
   width: 100%;
+  position: relative;
 
-  position: absolute;
   ::ng-deep {
     .mars-map-tiles {
       filter:
@@ -39,4 +39,36 @@
     }
   }
 
+}
+
+.map-bottom-part {
+  width: 100%;
+  height: 20px;
+
+  background-color: black;
+
+  position: absolute;
+  z-index: 999999;
+  bottom: 0px;
+  overflow: hidden;
+}
+
+.bbox-details {
+  height: 100%;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 200px 200px 200px 200px;
+}
+
+.bbox-cell {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bbox-text {
+  display: block;
+  height: 20px;
+  width: fit-content;
+  font-size: 12px;
 }

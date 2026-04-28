@@ -1,6 +1,24 @@
 <div class="map-widget-wrapper">
-  <div class="mars-map-container">
-    <div id="mars-map" class="mars-map"></div>
-  </div>
+  <div id="mars-map" class="mars-map">
 
+    <div class="map-bottom-part">
+      <div class="bbox-details">
+        <div class="bbox-cell">
+          <div class="bbox-text">lon_min : {{currentBbox()![0]}}</div>
+        </div>
+        <div class="bbox-cell">
+          <div class="bbox-text">lon_max : {{currentBbox()![1]}}</div>
+        </div>
+        <div class="bbox-cell">
+          <div class="bbox-text">lat_min : {{currentBbox()![2]}}</div>
+        </div>
+        <div class="bbox-cell">
+          <div class="bbox-text">lat_max : {{currentBbox()![3]}}</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 </div>
