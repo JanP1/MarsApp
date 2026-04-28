@@ -84,11 +84,16 @@ export class MarsMapService {
 
   // ======= ROVER POSITION ICON =======================
 
-  getRoverPosIconLayer(): VectorLayer {
+  getRoverPosIconLayer(rover: Rover | undefined): VectorLayer {
+    // TODO - remove later. Temporary fix
+    if (!rover) {
+      rover = {id: '0', sol: 0, longitude: 0, lattitude: 0};
+
+    }
     const iconFeature = new Feature({
       geometry: new Point([
-        137.3817063, // for now hardcoded
-        -4.8142672   // TODO Change later
+        rover.longitude,
+        rover.lattitude
       ]),
       name: 'Null Island',
       population: 4000,

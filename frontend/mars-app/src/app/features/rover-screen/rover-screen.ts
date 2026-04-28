@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, Signal, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Rover } from './models/rover.model';
 import { RoverService } from './services/rover.service';
 import { MarsMapComponent } from './components/mars-map-component/mars-map-component';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-rover-screen',
@@ -14,23 +15,15 @@ import { MarsMapComponent } from './components/mars-map-component/mars-map-compo
 })
 export class RoverScreen {
 
+  constructor(private roverService: RoverService) {}
+
   roverLastPosition$!: Observable<Rover>;
 
-  // TODO remove currentMapExtent later -----
-  // Based on
-  //
-  //      public readonly currentBbox = model<number[]>();
-  //
-  // from MarsMapComponent
-  currentMapExtent: number[] = [];
-  // ----------------------------------------
 
   // Sent to the @Input of MarsMapComponent
   pathPointsInView = signal<Rover[]>([]);
 
   private canFetchPoints = false;
-
-  constructor(private roverService: RoverService) {}
 
   ngOnInit(): void {
     this.roverLastPosition$ = this.roverService.getLatestRoverPosition();
@@ -47,12 +40,6 @@ export class RoverScreen {
 
   // Triggered when currentBbox changes in MarsMapComponent
   handleMapChange(bbox: number[]): void {
-
-    //TODO If no longer needed remove currentMapExtent -------
-    this.currentMapExtent = bbox.map(num => Math.round(num * 10000) / 10000);
-    // -------------------------------------------------------
-    console.log(this.canFetchPoints);
-
 
     // Only fetch if the zoom is 12 or greater
     if (this.canFetchPoints) {

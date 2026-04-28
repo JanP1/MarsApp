@@ -1,4 +1,4 @@
-import { Component, Input, model, OnInit, output } from '@angular/core';
+import { Component, input, Input, model, OnInit, output } from '@angular/core';
 import { Map } from 'ol';
 import { MarsMapService } from './services/mars-map.service';
 import { Rover } from '../../models/rover.model';
@@ -11,7 +11,8 @@ import { Rover } from '../../models/rover.model';
 })
 export class MarsMapComponent implements OnInit {
 
-  map!: Map;
+  private map!: Map;
+  public roverLastPosition = input<Rover | undefined>({id: '0', sol: 0, longitude: 0, lattitude: 0});
 
   // Input is set by the parent when the points are fetched
   @Input() set points(value: Rover[]) {
@@ -53,7 +54,7 @@ export class MarsMapComponent implements OnInit {
       layers: [
         this.marsMapService.getCuriosityCtxLayer(),
         this.marsMapService.getPathLayer(),
-        this.marsMapService.getRoverPosIconLayer()
+        this.marsMapService.getRoverPosIconLayer(this.roverLastPosition())
       ],
       view: this.marsMapService.createMarsView(),
 
