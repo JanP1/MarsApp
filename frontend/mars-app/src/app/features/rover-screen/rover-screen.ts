@@ -1,9 +1,8 @@
-import { Component, Signal, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Rover } from './models/rover.model';
 import { RoverService } from './services/rover.service';
 import { MarsMapComponent } from './components/mars-map-component/mars-map-component';
-import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-rover-screen',
@@ -17,7 +16,7 @@ export class RoverScreen {
 
   constructor(private roverService: RoverService) {}
 
-  roverLastPosition$!: Observable<Rover>;
+  roverLastPositionValue = signal<Rover>({id: "0", sol: 0, lattitude: 0, longitude: 0});
 
 
   // Sent to the @Input of MarsMapComponent
@@ -26,7 +25,11 @@ export class RoverScreen {
   private canFetchPoints = false;
 
   ngOnInit(): void {
-    this.roverLastPosition$ = this.roverService.getLatestRoverPosition();
+    this.roverService.getLatestRoverPosition().subscribe(rover => {
+      this.roverLastPositionValue.set(rover)
+      console.log("Rover last position: " + rover.lattitude.toString() + " " + rover.longitude.toString());
+
+    });
   }
 
   // Triggered when shouldDisplayPoints

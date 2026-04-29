@@ -84,40 +84,33 @@ export class MarsMapService {
 
   // ======= ROVER POSITION ICON =======================
 
-  getRoverPosIconLayer(rover: Rover | undefined): VectorLayer {
-    // TODO - remove later. Temporary fix
-    if (!rover) {
-      rover = {id: '0', sol: 0, longitude: 0, lattitude: 0};
+  private roverSource = new VectorSource();
+  private roverFeature = new Feature();
 
+  updateRoverLatestPosition(rover: Rover) {
+
+    const newCoords = [rover.longitude, rover.lattitude];
+    if (!this.roverFeature.getGeometry()) {
+      this.roverFeature.setGeometry(new Point(newCoords));
+      this.roverSource.addFeature(this.roverFeature);
+    } else {
+      (this.roverFeature.getGeometry() as Point).setCoordinates(newCoords);
     }
-    const iconFeature = new Feature({
-      geometry: new Point([
-        rover.longitude,
-        rover.lattitude
-      ]),
-      name: 'Null Island',
-      population: 4000,
-      rainfall: 500,
-    });
+  }
+
+  getRoverPosIconLayer(): VectorLayer {
 
     const iconStyle = new Style({
       image: new Icon({
         anchor: [0.5, 1],
         scale: 0.1,
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'fraction',
         src: '/assets/rover_pointer.png',
       }),
     });
-
-    iconFeature.setStyle(iconStyle);
-
-    const vectorSource = new VectorSource({
-      features: [iconFeature],
-    });
+    this.roverFeature.setStyle(iconStyle);
 
     return new VectorLayer({
-      source: vectorSource,
+      source: this.roverSource,
     });
   }
 
