@@ -35,3 +35,8 @@ Then in a column called "min_zoom" we store the value
 
 The frontend fetches in the bbox, and next it searches which of the selected rows have
 `min_zoom` less or equal to the provided zoom
+
+### Weather funcionality
+
+The weather for the last sol should be displayed on main screen
+A chart of previous should be displayed on /weather
