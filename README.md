@@ -27,3 +27,10 @@ More information in the `backend` directory
 ### Database
 For storage the app uses a PostgreSQL database.
 More information in the `db` directory
+
+##
+Screenshots
+<p align="center">
+  <img src="./screenshots/rover_screen_1.png" alt="..."><br>
+</p>
+
