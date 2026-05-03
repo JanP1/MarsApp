@@ -1,13 +1,41 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  pointer-events: auto;
+  z-index: -1;
+}
+
+.rover-graphic {
+  width: 300px;
+  height: fit-content;
+  padding: 20px;
+  box-sizing: border-box;
+
+  background-color: #242424;
+  border-radius: 10px;
+
+
+
+
+}
+
 .rover-screen-container {
+  z-index: 2;
   height: 100%;
   width: 100%;
 
   display: grid;
-  grid-template-columns: 1fr 400px;
+  grid-template-columns: 1fr 600px;
 
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 
   box-sizing: border-box;
   position: relative;
@@ -18,12 +46,27 @@
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   align-items: center;
+  background-color: #171717;
+  border-radius: 20px;
 
   justify-content: center;
   padding: 20px;
   box-sizing: border-box;
 
+}
+
+.rov-screen-grid-col-2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: #171717;
+  border-radius: 20px;
+
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .page-tag {
@@ -36,28 +79,22 @@
   font-size: 70px;
 }
 
-.rover-lon-lat {
-  width: 200px;
+.map-container {
+  width: 100%;
+  height: 100%;
+
+  padding: 10px;
+  box-sizing: border-box;
+
   border-radius: 10px;
-  background-color: darkslateblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  // background-color: #0f0f0f;
+  background-color: black;
+
 }
 
-.bbox-display-widget {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-weight: bold;
-  width: 200px;
-  height: 100px;
-  background-color: darkorange;
-  border-radius: 10px;
-  position: absolute;
-  top: 50px;
-  right: 50px;
+.curiosity-tag {
+  width: 100%;
+  font-size: 40px;
+  color: lightgray;
 
 }

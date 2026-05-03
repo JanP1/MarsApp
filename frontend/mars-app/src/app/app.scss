@@ -4,9 +4,21 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.page-background {
+  height: 100%;
+  width: 100%;
+
   position: absolute;
 
-  background-size: 1000px;
+  background-image: url('/assets/mars_bg.png');
+  background-size: cover;
+
+  background-position: right;
+
+  background-repeat: no-repeat;
+  z-index: -2;
 }
 
 .displayed-content-container {
@@ -14,4 +26,5 @@
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
+  overflow: hidden;
 }

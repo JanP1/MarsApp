@@ -1,17 +1,28 @@
+<div class="overlay"></div>
 <div class="page-tag">
   ROVER
 </div>
 <div class="rover-screen-container">
   <div class="rov-screen-grid-col-1">
+    <div class="curiosity-tag">
+      Curiosity
+    </div>
 
-    <!-- TODO Remove currentBbox later-->
-    <app-mars-map-component
-      [points]="pathPointsInView()"
-      [roverLastPosition]="roverLastPositionValue()"
-      (currentBboxChange)="handleMapChange($event)"
-      (shouldDisplayPoints)="togglePathVisibility($event)"
-      />
+    <div class="map-container">
+      <app-mars-map-component
+        [points]="pathPointsInView()"
+        [roverLastPosition]="roverLastPositionValue()"
+        (currentBboxChange)="handleMapChange($event)"
+        (shouldDisplayPoints)="togglePathVisibility($event)"
+        />
+
+    </div>
 
   </div>
+  <div class="rov-screen-grid-col-2">
+    <img src="assets/mars_rover.png" class="rover-graphic" alt="rover">
+
+  </div>
+
 
 </div>
