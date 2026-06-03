@@ -11,10 +11,45 @@
 
 }
 
-.future-info {
-  font-size: 40px;
-  font-weight: bold;
-  background-color: darkblue;
-  padding: 20px;
+.weather-data-container {
+  width: 800px;
+  height: 500px;
+
+  background-color: rgba($color: black, $alpha: 0.5);
+  padding: 50px;
   border-radius: 10px;
+
+  display: grid;
+  grid-template-rows: 1fr 100px;
+  box-sizing: border-box;
+}
+
+.weather-lable-container {
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+}
+
+.weather-icon {
+  height: 70px;
+}
+
+.weather-lable {
+  font-size: 40px;
+}
+
+.weather-data-lables {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+  align-items: end;
+
+}
+
+.weather-data {
+  font-size: 80px;
+  font-weight: bold;
 }
