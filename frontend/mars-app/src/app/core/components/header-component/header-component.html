@@ -1,6 +1,6 @@
 <div class="header-container">
-  <div class="header-button" routerLink='/'> Home </div>
-  <div class="header-button" routerLink='/weather'> Weather </div>
-  <div class="header-button" routerLink='/rover'> Rover </div>
-  <div class="header-button" routerLink='/news'> News </div>
+  <div class="header-button" routerLink='/' routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> Home </div>
+  <div class="header-button" routerLink='/weather' routerLinkActive="active"> Weather </div>
+  <div class="header-button" routerLink='/rover' routerLinkActive="active"> Rover </div>
+  <div class="header-button" routerLink='/news' routerLinkActive="active"> News </div>
 </div>

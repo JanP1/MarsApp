@@ -9,15 +9,16 @@
 
 .header-button {
   height: 20px;
-  width: 70px;
-  margin-left: 5px;
+  width: auto;
+  margin-left: 20px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   font-size: 15px;
-  color: lightblue;
+  font-weight: bold;
+  color: gray;
 
   border-radius: 5px;
   box-sizing: border-box;
@@ -25,8 +26,15 @@
   transition: 0.2s ease-in-out;
   cursor: pointer;
 
+  user-select: none;
+  -webkit-user-select: none;
 
-  &:hover{
+  &.active {
     color: white;
   }
+
+  &:hover {
+    color: white;
+  }
+
 }
