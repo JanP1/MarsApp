@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { News } from './models/news.model';
 import { NewsService } from './services/news.service';
@@ -9,6 +9,7 @@ import { AsyncPipe } from '@angular/common';
   selector: 'app-news-screen',
   imports: [AsyncPipe],
   templateUrl: './news-screen.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './news-screen.scss',
 })
 export class NewsScreen {
@@ -17,7 +18,6 @@ export class NewsScreen {
   constructor(private newsService: NewsService) {}
 
   ngOnInit(): void {
-
     const startDate = new LocalDate(2026, 1, 1);
 
     this.newsList$ = this.newsService.getNewsFromDateUntilLatest(startDate);

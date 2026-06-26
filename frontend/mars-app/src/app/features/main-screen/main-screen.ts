@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Weather } from '../weather-screen/models/weather.model';
 import { WeatherService } from './services/weather.service';
@@ -6,10 +6,9 @@ import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-main-screen',
-  imports: [
-    AsyncPipe,
-  ],
+  imports: [AsyncPipe],
   templateUrl: './main-screen.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './main-screen.scss',
 })
 export class MainScreen {
@@ -18,10 +17,6 @@ export class MainScreen {
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
-
     this.weather$ = this.weatherService.getLatestWeather();
-
   }
-
-
 }

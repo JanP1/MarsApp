@@ -1,4 +1,4 @@
-import { Component, Input, model, OnInit, output } from '@angular/core';
+import { Component, Input, model, OnInit, output, ChangeDetectionStrategy } from '@angular/core';
 import { Map } from 'ol';
 import { MarsMapService } from './services/mars-map.service';
 import { Rover } from '../../models/rover.model';
@@ -7,17 +7,17 @@ import { Rover } from '../../models/rover.model';
   selector: 'app-mars-map-component',
   standalone: true,
   templateUrl: './mars-map-component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './mars-map-component.scss',
 })
 export class MarsMapComponent implements OnInit {
-
   private map!: Map;
 
   // Input set by parent when latest position changes
-  @Input() set roverLastPosition(value: Rover){
-  // Update the source of the map layer displaying latest position
+  @Input() set roverLastPosition(value: Rover) {
+    // Update the source of the map layer displaying latest position
     this.marsMapService.updateRoverLatestPosition(value);
-  };
+  }
 
   // Input is set by the parent when the points are fetched
   @Input() set points(value: Rover[]) {
@@ -31,7 +31,6 @@ export class MarsMapComponent implements OnInit {
 
   initMapLogic() {
     this.map.on('moveend', () => {
-
       const view = this.map.getView();
       const mapSize = this.map.getSize();
 
@@ -42,31 +41,27 @@ export class MarsMapComponent implements OnInit {
 
         this.shouldDisplayPoints.emit(zoom >= 12);
         this.currentBbox.set(bbox);
-
       }
     });
   }
 
-  constructor( private marsMapService: MarsMapService,) {}
+  constructor(private marsMapService: MarsMapService) {}
 
   ngOnInit(): void {
     this.initializeMap();
   }
 
   private initializeMap(): void {
-
     this.map = new Map({
       target: 'mars-map',
       layers: [
         this.marsMapService.getCuriosityCtxLayer(),
         this.marsMapService.getPathLayer(),
-        this.marsMapService.getRoverPosIconLayer()
+        this.marsMapService.getRoverPosIconLayer(),
       ],
       view: this.marsMapService.createMarsView(),
-
     });
 
     this.initMapLogic();
-
   }
 }
