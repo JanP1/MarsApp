@@ -4,9 +4,9 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Weather } from "../../weather-screen/models/weather.model";
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class WeatherService {
-  private readonly baseUrl = `${environment.apiUrl}/api/weather`
+  private readonly baseUrl = `${environment.apiUrl}/api/weather`;
 
   constructor(private http: HttpClient) {}
 
@@ -14,4 +14,8 @@ export class WeatherService {
     return this.http.get<Weather>(this.baseUrl + "/latest");
   }
 
+  // Updated to return an array of Weather
+  getLastSevenWeather(): Observable<Weather[]> {
+    return this.http.get<Weather[]>(this.baseUrl + "/last_seven");
+  }
 }

@@ -11,12 +11,30 @@
 }
 
 
-.page-tag {
-  position: absolute;
-  right: 50px;
-  bottom: 50px;
-  color: gray;
-  opacity: 0.1;
-  font-weight: bold;
-  font-size: 70px;
+.chart-wrapper {
+  width: 900px;
+  height: 600px;
+  background-color: #171717;
+  border: 1px solid #262626;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+
+}
+
+apx-chart {
+  height: 100%;
+  width: 100%;
+}
+
+.loading-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+  color: #ffffff;
 }

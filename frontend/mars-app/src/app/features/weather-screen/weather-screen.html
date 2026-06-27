@@ -1,6 +1,15 @@
-<div class="page-tag">
-  WEATHER
-</div>
 <div class="weather-screen-container">
-
+  @if (isLoading) {
+    <div class="loading-state">Loading historical trends...</div>
+  } @else if (chartOptions) {
+    <div class="chart-wrapper">
+      <apx-chart
+        [series]="chartOptions.series!"
+        [chart]="chartOptions.chart!"
+        [xaxis]="chartOptions.xaxis!"
+        [plotOptions]="chartOptions.plotOptions!"
+        [dataLabels]="chartOptions.dataLabels!"
+      ></apx-chart>
+    </div>
+  }
 </div>
